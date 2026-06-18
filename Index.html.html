@@ -30,8 +30,9 @@
 
     .row{
         display:flex;
-        gap:10px;
+        gap:20px;
         flex-wrap:wrap;
+        justify-content: center;
     }
 
     .card{
@@ -40,6 +41,17 @@
         padding:10px;
         border:1px solid #ddd;
         border-radius:10px;
+        text-align: center;
+    }
+
+    .chart-container {
+        flex: 1;
+        min-width: 300px;
+        max-width: 400px;
+        padding: 10px;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
     }
 
     table{
@@ -64,16 +76,18 @@
     }
 
     img{
-        width:100%;
-        max-width:250px;
-        border-radius:10px;
+        width:100px;
+        height:100px;
+        object-fit: cover;
+        border-radius:50%;
+        margin-bottom: 10px;
+        border: 3px solid #0d1b2a;
     }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
     <h1>GMAW REAL-TIME QUALITY MONITORING SYSTEM</h1>
     <h3>BMIK 2124 ELECTRICAL WELDING EQUIPMENT</h3>
@@ -100,7 +114,6 @@
 </header>
 
 
-<!-- DATA SOURCE -->
 <section>
     <h2>Data Source Panel (30 Samples)</h2>
 
@@ -109,14 +122,7 @@
         current, voltage, power, heat input, resistance and voltage drop measurements.
     </p>
 
-    <div style="
-        overflow-x:auto;
-        overflow-y:auto;
-        max-height:450px;
-        border:1px solid #ccc;
-        border-radius:10px;
-    ">
-
+    <div style="overflow-x:auto; overflow-y:auto; max-height:400px; border:1px solid #ccc; border-radius:10px;">
     <table>
         <thead style="position:sticky; top:0; background:#0d1b2a; color:white;">
             <tr>
@@ -129,67 +135,31 @@
                 <th>Voltage Drop (V)</th>
             </tr>
         </thead>
-
-        <tbody>
-            <tr><td>1</td><td>185.2</td><td>24.8</td><td>4592.96</td><td>1.722</td><td>0.133</td><td>50.72</td></tr>
-            <tr><td>2</td><td>192.6</td><td>25.1</td><td>4834.26</td><td>1.812</td><td>0.130</td><td>50.42</td></tr>
-            <tr><td>3</td><td>178.4</td><td>24.2</td><td>4317.28</td><td>1.618</td><td>0.135</td><td>51.32</td></tr>
-            <tr><td>4</td><td>205.8</td><td>25.9</td><td>5330.22</td><td>1.998</td><td>0.125</td><td>49.62</td></tr>
-            <tr><td>5</td><td>168.3</td><td>23.7</td><td>3988.71</td><td>1.495</td><td>0.140</td><td>51.82</td></tr>
-            <tr><td>6</td><td>195.2</td><td>25.3</td><td>4938.56</td><td>1.851</td><td>0.129</td><td>50.22</td></tr>
-            <tr><td>7</td><td>210.4</td><td>26.1</td><td>5491.44</td><td>2.059</td><td>0.124</td><td>49.42</td></tr>
-            <tr><td>8</td><td>182.7</td><td>24.5</td><td>4476.15</td><td>1.678</td><td>0.134</td><td>51.02</td></tr>
-            <tr><td>9</td><td>220.1</td><td>26.7</td><td>5876.67</td><td>2.203</td><td>0.121</td><td>48.82</td></tr>
-            <tr><td>10</td><td>188.5</td><td>24.7</td><td>4655.95</td><td>1.745</td><td>0.131</td><td>50.82</td></tr>
-            <tr><td>11</td><td>215.3</td><td>26.5</td><td>5705.45</td><td>2.139</td><td>0.123</td><td>49.02</td></tr>
-            <tr><td>12</td><td>175.2</td><td>23.9</td><td>4187.28</td><td>1.570</td><td>0.136</td><td>51.62</td></tr>
-            <tr><td>13</td><td>200.6</td><td>25.6</td><td>5135.36</td><td>1.925</td><td>0.127</td><td>49.92</td></tr>
-            <tr><td>14</td><td>165.8</td><td>23.4</td><td>3879.72</td><td>1.454</td><td>0.141</td><td>52.12</td></tr>
-            <tr><td>15</td><td>225.4</td><td>27.0</td><td>6085.80</td><td>2.282</td><td>0.119</td><td>48.52</td></tr>
-            <tr><td>16</td><td>212.5</td><td>26.3</td><td>5588.75</td><td>2.095</td><td>0.123</td><td>49.22</td></tr>
-            <tr><td>17</td><td>198.3</td><td>25.4</td><td>5036.82</td><td>1.888</td><td>0.128</td><td>50.12</td></tr>
-            <tr><td>18</td><td>225.7</td><td>27.1</td><td>6116.47</td><td>2.293</td><td>0.120</td><td>48.42</td></tr>
-            <tr><td>19</td><td>189.6</td><td>24.9</td><td>4721.04</td><td>1.770</td><td>0.131</td><td>50.62</td></tr>
-            <tr><td>20</td><td>235.2</td><td>28.0</td><td>6585.60</td><td>2.469</td><td>0.119</td><td>47.52</td></tr>
-            <tr><td>21</td><td>175.8</td><td>24.0</td><td>4219.20</td><td>1.582</td><td>0.136</td><td>51.52</td></tr>
-            <tr><td>22</td><td>220.4</td><td>26.8</td><td>5906.72</td><td>2.215</td><td>0.121</td><td>48.72</td></tr>
-            <tr><td>23</td><td>195.5</td><td>25.3</td><td>4946.15</td><td>1.854</td><td>0.129</td><td>50.22</td></tr>
-            <tr><td>24</td><td>208.9</td><td>26.0</td><td>5431.40</td><td>2.036</td><td>0.124</td><td>49.52</td></tr>
-            <tr><td>25</td><td>170.2</td><td>23.8</td><td>4050.76</td><td>1.519</td><td>0.139</td><td>51.72</td></tr>
-            <tr><td>26</td><td>230.8</td><td>27.5</td><td>6347.00</td><td>2.380</td><td>0.119</td><td>48.02</td></tr>
-            <tr><td>27</td><td>185.9</td><td>24.8</td><td>4610.32</td><td>1.728</td><td>0.133</td><td>50.72</td></tr>
-            <tr><td>28</td><td>218.3</td><td>26.6</td><td>5806.78</td><td>2.177</td><td>0.121</td><td>48.92</td></tr>
-            <tr><td>29</td><td>195.0</td><td>25.2</td><td>4914.00</td><td>1.842</td><td>0.129</td><td>50.32</td></tr>
-            <tr><td>30</td><td>210.1</td><td>26.2</td><td>5504.62</td><td>2.064</td><td>0.124</td><td>49.32</td></tr>
-        </tbody>
+        <tbody id="dataTableBody">
+            </tbody>
     </table>
-
     </div>
 </section>
-<!-- SCATTER DIAGRAM -->
+
 <section>
     <h2>Scatter Diagrams (3 Plots)</h2>
     <div class="row">
-        <img src="SCVOLTAGE.png" alt="Scatter 1">
-        <img src="SCPOWER.png" alt="Scatter 2">
-        <img src="SCHEAT.png" alt="Scatter 3">
+        <div class="chart-container">
+            <canvas id="scVoltage"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="scPower"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="scHeat"></canvas>
+        </div>
     </div>
 </section>
 
 
-<!-- TABLE 2 DISPLAY -->
-
 <section>
     <h2>Table 2: Temperature Measurements for 25 Samples with Calculated Means and Ranges</h2>
-
-    <div style="
-        overflow-x:auto;
-        overflow-y:auto;
-        max-height:400px;
-        border:1px solid #ccc;
-        border-radius:10px;
-    ">
-
+    <div style="overflow-x:auto; overflow-y:auto; max-height:400px; border:1px solid #ccc; border-radius:10px;">
         <table style="font-size:14px;">
             <thead style="position:sticky; top:0; background:#0d1b2a; color:white;">
                 <tr>
@@ -198,137 +168,59 @@
                     <th>Range (R)</th>
                 </tr>
             </thead>
-
-            <tbody>
-                <tr><td>1</td><td>486.25</td><td>13.5</td></tr>
-                <tr><td>2</td><td>511.00</td><td>9.4</td></tr>
-                <tr><td>3</td><td>470.25</td><td>9.5</td></tr>
-                <tr><td>4</td><td>534.25</td><td>11.5</td></tr>
-                <tr><td>5</td><td>449.37</td><td>6.5</td></tr>
-                <tr><td>6</td><td>498.92</td><td>6.5</td></tr>
-                <tr><td>7</td><td>520.32</td><td>9.3</td></tr>
-                <tr><td>8</td><td>476.25</td><td>7.4</td></tr>
-                <tr><td>9</td><td>506.25</td><td>7.9</td></tr>
-                <tr><td>10</td><td>461.78</td><td>6.4</td></tr>
-                <tr><td>11</td><td>527.62</td><td>9.5</td></tr>
-                <tr><td>12</td><td>491.75</td><td>6.6</td></tr>
-                <tr><td>13</td><td>517.63</td><td>9.7</td></tr>
-                <tr><td>14</td><td>457.58</td><td>9.3</td></tr>
-                <tr><td>15</td><td>509.90</td><td>8.7</td></tr>
-                <tr><td>16</td><td>482.52</td><td>8.5</td></tr>
-                <tr><td>17</td><td>533.12</td><td>9.8</td></tr>
-                <tr><td>18</td><td>467.60</td><td>10.2</td></tr>
-                <tr><td>19</td><td>502.62</td><td>9.1</td></tr>
-                <tr><td>20</td><td>541.78</td><td>7.6</td></tr>
-                <tr><td>21</td><td>477.60</td><td>9.3</td></tr>
-                <tr><td>22</td><td>520.10</td><td>8.7</td></tr>
-                <tr><td>23</td><td>452.55</td><td>7.7</td></tr>
-                <tr><td>24</td><td>497.62</td><td>9.3</td></tr>
-                <tr><td>25</td><td>530.10</td><td>8.7</td></tr>
-            </tbody>
+            <tbody id="table2Body">
+                </tbody>
         </table>
-
     </div>
 </section>
-
-<!-- CONTROL CHART -->
 
 <section>
     <h2>Control Charts Construction</h2>
-
-    <div style="text-align:center;">
-        <img
-            src="Construction.jpg"
-            alt="Control Charts Construction"
-            style="max-width:900px; width:100%; border:1px solid #ccc; border-radius:10px;"
-        >
+    <div class="row">
+        <div class="chart-container" style="max-width: 600px;">
+            <canvas id="xbarChart"></canvas>
+        </div>
+        <div class="chart-container" style="max-width: 600px;">
+            <canvas id="rChart"></canvas>
+        </div>
     </div>
-
-    <p style="text-align:center;">
-        Figure: Construction of X-bar and R Control Charts
-    </p>
+    <p style="text-align:center;">Figure: Construction of X-bar and R Control Charts</p>
 </section>
 
-<!-- COMPARISON -->
-<!-- TABLE 3: LOAD & DISPLACEMENT -->
 <section>
     <h2>Table 3 – Load & Displacement Reference Data</h2>
-
     <table>
-        <thead>
+        <thead style="background:#0d1b2a; color:white;">
             <tr>
                 <th>Measurement Point</th>
                 <th>Load (N)</th>
                 <th>Displacement (mm)</th>
             </tr>
         </thead>
-
         <tbody>
-            <tr>
-                <td>Arc Start</td>
-                <td>125</td>
-                <td>0.02</td>
-            </tr>
-
-            <tr>
-                <td>5 seconds</td>
-                <td>142</td>
-                <td>0.15</td>
-            </tr>
-
-            <tr>
-                <td>10 seconds</td>
-                <td>138</td>
-                <td>0.38</td>
-            </tr>
-
-            <tr>
-                <td>15 seconds</td>
-                <td>145</td>
-                <td>0.62</td>
-            </tr>
-
-            <tr>
-                <td>20 seconds</td>
-                <td>140</td>
-                <td>0.85</td>
-            </tr>
-
-            <tr>
-                <td>Arc Stop</td>
-                <td>135</td>
-                <td>1.02</td>
-            </tr>
-
-            <tr>
-                <td>After cooling (60 s)</td>
-                <td>N/A</td>
-                <td>0.48</td>
-            </tr>
+            <tr><td>Arc Start</td><td>125</td><td>0.02</td></tr>
+            <tr><td>5 seconds</td><td>142</td><td>0.15</td></tr>
+            <tr><td>10 seconds</td><td>138</td><td>0.38</td></tr>
+            <tr><td>15 seconds</td><td>145</td><td>0.62</td></tr>
+            <tr><td>20 seconds</td><td>140</td><td>0.85</td></tr>
+            <tr><td>Arc Stop</td><td>135</td><td>1.02</td></tr>
+            <tr><td>After cooling (60 s)</td><td>N/A</td><td>0.48</td></tr>
         </tbody>
     </table>
 </section>
 
 
-<!-- LOAD & DISPLACEMENT CHART -->
 <section>
     <h2>Load & Displacement Reference Data Chart</h2>
-
-    <div style="text-align:center;">
-        <img
-            src="Load_Displacement_Chart.png"
-            alt="Table 3 Load & Displacement Reference Data Chart"
-            style="max-width:800px; width:100%; border:1px solid #ccc; border-radius:10px;"
-        >
+    <div style="text-align:center; max-width: 900px; margin: auto;">
+        <canvas id="ldChart"></canvas>
     </div>
-
-    <p style="text-align:center;">
-        Figure: Load and Displacement Trend During Welding Process
+    <p style="text-align:center; margin-top: 15px;">
+        Figure: Load (Bar) and Displacement (Line) Trend During Welding Process
     </p>
 </section>
 
 
-<!-- CONCLUSION -->
 <section>
     <h2>Conclusion</h2>
     <p>
@@ -338,42 +230,178 @@
 </section>
 
 
-<!-- FOOTER -->
 <footer>
     <p>GMAW Monitoring System Dashboard | BMIK 2124 Electrical Welding Equipment</p>
     <p>Recommendations: Improve sensor calibration and increase sample size for better accuracy.</p>
 </footer>
 
 
-<!-- CHART JS -->
 <script>
-const xbar = document.getElementById('xbarChart');
+/* ========================
+   DATA SOURCE (30 SAMPLES)
+======================== */
+const data30 = [
+    {id:1, c:185.2, v:24.8, p:4592.96, h:1.722, r:0.133, vd:50.72},
+    {id:2, c:192.6, v:25.1, p:4834.26, h:1.812, r:0.130, vd:50.42},
+    {id:3, c:178.4, v:24.2, p:4317.28, h:1.618, r:0.135, vd:51.32},
+    {id:4, c:205.8, v:25.9, p:5330.22, h:1.998, r:0.125, vd:49.62},
+    {id:5, c:168.3, v:23.7, p:3988.71, h:1.495, r:0.140, vd:51.82},
+    {id:6, c:195.2, v:25.3, p:4938.56, h:1.851, r:0.129, vd:50.22},
+    {id:7, c:210.4, v:26.1, p:5491.44, h:2.059, r:0.124, vd:49.42},
+    {id:8, c:182.7, v:24.5, p:4476.15, h:1.678, r:0.134, vd:51.02},
+    {id:9, c:220.1, v:26.7, p:5876.67, h:2.203, r:0.121, vd:48.82},
+    {id:10, c:188.5, v:24.7, p:4655.95, h:1.745, r:0.131, vd:50.82},
+    {id:11, c:215.3, v:26.5, p:5705.45, h:2.139, r:0.123, vd:49.02},
+    {id:12, c:175.2, v:23.9, p:4187.28, h:1.570, r:0.136, vd:51.62},
+    {id:13, c:200.6, v:25.6, p:5135.36, h:1.925, r:0.127, vd:49.92},
+    {id:14, c:165.8, v:23.4, p:3879.72, h:1.454, r:0.141, vd:52.12},
+    {id:15, c:225.4, v:27.0, p:6085.80, h:2.282, r:0.119, vd:48.52},
+    {id:16, c:212.5, v:26.3, p:5588.75, h:2.095, r:0.123, vd:49.22},
+    {id:17, c:198.3, v:25.4, p:5036.82, h:1.888, r:0.128, vd:50.12},
+    {id:18, c:225.7, v:27.1, p:6116.47, h:2.293, r:0.120, vd:48.42},
+    {id:19, c:189.6, v:24.9, p:4721.04, h:1.770, r:0.131, vd:50.62},
+    {id:20, c:235.2, v:28.0, p:6585.60, h:2.469, r:0.119, vd:47.52},
+    {id:21, c:175.8, v:24.0, p:4219.20, h:1.582, r:0.136, vd:51.52},
+    {id:22, c:220.4, v:26.8, p:5906.72, h:2.215, r:0.121, vd:48.72},
+    {id:23, c:195.5, v:25.3, p:4946.15, h:1.854, r:0.129, vd:50.22},
+    {id:24, c:208.9, v:26.0, p:5431.40, h:2.036, r:0.124, vd:49.52},
+    {id:25, c:170.2, v:23.8, p:4050.76, h:1.519, r:0.139, vd:51.72},
+    {id:26, c:230.8, v:27.5, p:6347.00, h:2.380, r:0.119, vd:48.02},
+    {id:27, c:185.9, v:24.8, p:4610.32, h:1.728, r:0.133, vd:50.72},
+    {id:28, c:218.3, v:26.6, p:5806.78, h:2.177, r:0.121, vd:48.92},
+    {id:29, c:195.0, v:25.2, p:4914.00, h:1.842, r:0.129, vd:50.32},
+    {id:30, c:210.1, v:26.2, p:5504.62, h:2.064, r:0.124, vd:49.32}
+];
 
-new Chart(xbar, {
+// Populate Table 1
+const table1Body = document.getElementById('dataTableBody');
+data30.forEach(d => {
+    table1Body.innerHTML += <tr><td>${d.id}</td><td>${d.c}</td><td>${d.v}</td><td>${d.p}</td><td>${d.h}</td><td>${d.r}</td><td>${d.vd}</td></tr>;
+});
+
+/* ========================
+   SCATTER PLOTS
+======================== */
+const scOptions = (titleX, titleY) => ({
+    plugins: { legend: { display: false } },
+    scales: {
+        x: { title: { display: true, text: titleX } },
+        y: { title: { display: true, text: titleY } }
+    }
+});
+
+// 1. Current vs Voltage
+new Chart(document.getElementById('scVoltage'), {
+    type: 'scatter',
+    data: { datasets: [{ data: data30.map(d => ({x: d.c, y: d.v})), backgroundColor: 'blue' }] },
+    options: { ...scOptions('Current (A)', 'Voltage (V)'), plugins: { title: {display:true, text:'Current vs Voltage'}}}
+});
+
+// 2. Current vs Power
+new Chart(document.getElementById('scPower'), {
+    type: 'scatter',
+    data: { datasets: [{ data: data30.map(d => ({x: d.c, y: d.p})), backgroundColor: 'red' }] },
+    options: { ...scOptions('Current (A)', 'Power (W)'), plugins: { title: {display:true, text:'Current vs Power'}}}
+});
+
+// 3. Current vs Heat Input
+new Chart(document.getElementById('scHeat'), {
+    type: 'scatter',
+    data: { datasets: [{ data: data30.map(d => ({x: d.c, y: d.h})), backgroundColor: 'green' }] },
+    options: { ...scOptions('Current (A)', 'Heat Input (kJ/mm)'), plugins: { title: {display:true, text:'Current vs Heat Input'}}}
+});
+
+/* ========================
+   TABLE 2 DATA (TEMP)
+======================== */
+const table2Data = [
+    {s:1, x:486.25, r:13.5}, {s:2, x:511.00, r:9.4}, {s:3, x:470.25, r:9.5}, {s:4, x:534.25, r:11.5},
+    {s:5, x:449.37, r:6.5}, {s:6, x:498.92, r:6.5}, {s:7, x:520.32, r:9.3}, {s:8, x:476.25, r:7.4},
+    {s:9, x:506.25, r:7.9}, {s:10, x:461.78, r:6.4}, {s:11, x:527.62, r:9.5}, {s:12, x:491.75, r:6.6},
+    {s:13, x:517.63, r:9.7}, {s:14, x:457.58, r:9.3}, {s:15, x:509.90, r:8.7}, {s:16, x:482.52, r:8.5},
+    {s:17, x:533.12, r:9.8}, {s:18, x:467.60, r:10.2}, {s:19, x:502.62, r:9.1}, {s:20, x:541.78, r:7.6},
+    {s:21, x:477.60, r:9.3}, {s:22, x:520.10, r:8.7}, {s:23, x:452.55, r:7.7}, {s:24, x:497.62, r:9.3}, {s:25, x:530.10, r:8.7}
+];
+const table2Body = document.getElementById('table2Body');
+table2Data.forEach(d => {
+    table2Body.innerHTML += <tr><td>${d.s}</td><td>${d.x}</td><td>${d.r}</td></tr>;
+});
+
+/* ========================
+   CONTROL CHARTS
+======================== */
+new Chart(document.getElementById('xbarChart'), {
     type: 'line',
     data: {
-        labels: ['1','2','3','4','5'],
+        labels: table2Data.map(d => d.s),
         datasets: [{
-            label: 'X-bar Chart',
-            data: [121,131,126,141,136],
+            label: 'X-bar (Mean Temp)',
+            data: table2Data.map(d => d.x),
             borderColor: 'blue',
-            fill: false
+            fill: false,
+            tension: 0.1
         }]
     }
 });
 
-const r = document.getElementById('rChart');
-
-new Chart(r, {
+new Chart(document.getElementById('rChart'), {
     type: 'line',
     data: {
-        labels: ['1','2','3','4','5'],
+        labels: table2Data.map(d => d.s),
         datasets: [{
-            label: 'R Chart',
-            data: [4,4,4,4,4],
+            label: 'R Chart (Range)',
+            data: table2Data.map(d => d.r),
             borderColor: 'red',
-            fill: false
+            fill: false,
+            tension: 0.1
         }]
+    }
+});
+
+/* ========================
+   LOAD & DISPLACEMENT CHART 
+   (Dual Axis - Combines Bar & Line)
+======================== */
+new Chart(document.getElementById('ldChart'), {
+    type: 'bar',
+    data: {
+        labels: ['15 seconds', '5 seconds', '20 seconds', '10 seconds', 'Arc Stop', 'Arc Start', 'After cooling'],
+        datasets: [
+            {
+                label: 'Load (N)',
+                type: 'bar',
+                data: [145, 142, 140, 138, 135, 125, 0], // Reordered to match your Pareto document
+                backgroundColor: '#4472c4',
+                yAxisID: 'y'
+            },
+            {
+                label: 'Displacement (mm)',
+                type: 'line',
+                data: [0.62, 0.15, 0.85, 0.38, 1.02, 0.02, 0.48], // Matched points to Load sorting
+                borderColor: '#ed7d31',
+                borderWidth: 3,
+                yAxisID: 'y1'
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: { 
+                type: 'linear', 
+                position: 'left', 
+                title: {display:true, text:'Load (N)'} 
+            },
+            y1: { 
+                type: 'linear', 
+                position: 'right', 
+                title: {display:true, text:'Displacement (mm)'}, 
+                grid: {drawOnChartArea: false} 
+            }
+        }
     }
 });
 </script>
+
+</body>
+</html>
